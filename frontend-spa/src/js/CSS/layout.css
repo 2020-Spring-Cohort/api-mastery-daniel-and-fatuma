@@ -31,3 +31,33 @@ footer{
     text-align: center;
     height: 80px;
 }
+.author__detail{
+    padding-top: 50px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr;
+}
+.author__info{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.rating__icon{
+    text-align: end;
+}
+.book__detail{
+    padding-top: 50px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr;
+}
+.summary__container{
+    text-align: center;
+    margin: 50px;
+}
+.comment__container{
+    text-align: center;
+    margin: 50px;
+}
