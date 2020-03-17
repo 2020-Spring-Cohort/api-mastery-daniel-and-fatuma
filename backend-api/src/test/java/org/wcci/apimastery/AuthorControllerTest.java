@@ -2,6 +2,8 @@ package org.wcci.apimastery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -11,6 +13,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class AuthorControllerTest {
 
@@ -36,7 +39,13 @@ public class AuthorControllerTest {
         Collection<Author> result = underTest.retrieveAuthors();
         assertThat(result).contains(testAuthor);
     }
-    
+    @Test
+    public void authorsIsWiredCorrectly() throws Exception{
+        authorRepository = mock(AuthorRepository.class);
+        AuthorController underTest = new AuthorController(authorRepository);
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
+        mockMvc.perform(get("/authors")).andExpect(status().isOk());
+    }
 
 
 
