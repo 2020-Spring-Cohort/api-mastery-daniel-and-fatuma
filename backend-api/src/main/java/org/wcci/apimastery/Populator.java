@@ -3,6 +3,10 @@ package org.wcci.apimastery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.wcci.apimastery.Models.Author;
+import org.wcci.apimastery.Models.Book;
+import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
+import org.wcci.apimastery.Storages.Repositories.BookRepository;
 
 
 @Component

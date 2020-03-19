@@ -1,6 +1,9 @@
-package org.wcci.apimastery;
+package org.wcci.apimastery.Storages;
 
 import org.springframework.stereotype.Service;
+import org.wcci.apimastery.Models.Author;
+import org.wcci.apimastery.Storages.AuthorStorage;
+import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
 
 import java.util.Collection;
 
