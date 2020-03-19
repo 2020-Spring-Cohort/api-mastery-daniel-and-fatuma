@@ -1,4 +1,4 @@
-package org.wcci.apimastery;
+package org.wcci.apimastery.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
