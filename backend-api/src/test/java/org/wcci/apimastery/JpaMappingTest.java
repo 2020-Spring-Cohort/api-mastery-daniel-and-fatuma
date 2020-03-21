@@ -7,12 +7,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.wcci.apimastery.Models.Author;
 import org.wcci.apimastery.Models.Book;
-<<<<<<< HEAD
+
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
 import org.wcci.apimastery.Storages.Repositories.BookRepository;
-=======
 import org.wcci.apimastery.Models.Rating;
->>>>>>> 0320_DV
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -79,6 +77,18 @@ public class JpaMappingTest {
     public void authorShouldHaveDownRating(){
         testAuthor.addDownRating();
         Rating ratingToTest = testAuthor.getRating();
+        assertThat(ratingToTest.getDownRating()).isEqualTo(1);
+    }
+    @Test
+    public void bookShouldHaveUpRating(){
+        testBook1.addUpRating();
+        Rating ratingToTest = testBook1.getRating();
+        assertThat(ratingToTest.getUpRating()).isEqualTo(1);
+    }
+    @Test
+    public void bookShouldHaveDownRating(){
+        testBook1.addDownRating();
+        Rating ratingToTest = testBook1.getRating();
         assertThat(ratingToTest.getDownRating()).isEqualTo(1);
     }
 

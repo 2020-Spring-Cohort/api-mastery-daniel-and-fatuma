@@ -2,10 +2,9 @@ package org.wcci.apimastery.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 public class Book {
@@ -21,6 +20,21 @@ public class Book {
     private String publishedDate;
     private String publishingCompany;
 
+    @OneToMany(mappedBy = "book")
+    private Collection<Comments> comments;
+
+
+    @OneToOne (cascade = {CascadeType.ALL})
+    private Rating rating;
+
+    public void addUpRating(){
+        rating.addUpRating();
+    }
+    public void addDownRating(){
+        rating.addDownRating();
+    }
+
+
     public Book() {
     }
 
@@ -30,8 +44,8 @@ public class Book {
         this.genre = genre;
         this.publishedDate = publishedDate;
         this.publishingCompany = publishingCompany;
-
-
+        this.comments = new HashSet<>();
+        this.rating = new Rating();
     }
 
     public long getId() {
@@ -60,6 +74,14 @@ public class Book {
 
     public String getPublishingCompany() {
         return publishingCompany;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void addCommentToBook(Comments commentToAdd){
+        comments.add(commentToAdd);
     }
 
     @Override

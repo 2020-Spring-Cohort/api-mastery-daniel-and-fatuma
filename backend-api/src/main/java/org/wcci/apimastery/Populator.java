@@ -5,11 +5,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.wcci.apimastery.Models.Author;
 import org.wcci.apimastery.Models.Book;
-<<<<<<< HEAD
+
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
 import org.wcci.apimastery.Storages.Repositories.BookRepository;
-=======
->>>>>>> 0320_DV
 
 
 @Component

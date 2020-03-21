@@ -13,6 +13,9 @@ public class Author {
     @OneToMany(mappedBy = "author")
     private Collection<Book> books;
 
+    @OneToMany(mappedBy = "author")
+    private Collection<Comments> comments;
+
     @OneToOne (cascade = {CascadeType.ALL})
     private Rating rating;
 
@@ -58,6 +61,13 @@ public class Author {
 
     public Rating getRating() {
         return rating;
+    }
+
+    public Collection<Comments> getComments() {
+        return comments;
+    }
+    public void addCommentToBook(Comments commentToAdd){
+        comments.add(commentToAdd);
     }
 
     @Override
