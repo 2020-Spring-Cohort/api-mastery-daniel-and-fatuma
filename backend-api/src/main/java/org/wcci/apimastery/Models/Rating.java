@@ -1,9 +1,6 @@
 package org.wcci.apimastery.Models;
 
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

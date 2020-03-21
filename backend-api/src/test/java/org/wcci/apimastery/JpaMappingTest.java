@@ -7,12 +7,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.wcci.apimastery.Models.Author;
 import org.wcci.apimastery.Models.Book;
-<<<<<<< HEAD
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
 import org.wcci.apimastery.Storages.Repositories.BookRepository;
-=======
+
 import org.wcci.apimastery.Models.Rating;
->>>>>>> 0320_DV
 
 import static org.assertj.core.api.Assertions.assertThat;
 
