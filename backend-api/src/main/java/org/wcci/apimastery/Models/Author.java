@@ -1,6 +1,9 @@
 package org.wcci.apimastery.Models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 
 @Entity
@@ -12,16 +15,6 @@ public class Author {
 
     @OneToMany(mappedBy = "author")
     private Collection<Book> books;
-
-    @OneToOne (cascade = {CascadeType.ALL})
-    private Rating rating;
-
-    public void addUpRating(){
-        rating.addUpRating();
-    }
-    public void addDownRating(){
-        rating.addDownRating();
-    }
     private String name;
     private int age;
     private String homeTown;
@@ -33,7 +26,6 @@ public class Author {
         this.name = name;
         this.age = age;
         this.homeTown = homeTown;
-        this.rating = new Rating();
     }
 
     public long getId() {
@@ -54,10 +46,6 @@ public class Author {
 
     public Collection<Book> getBooks() {
         return books;
-    }
-
-    public Rating getRating() {
-        return rating;
     }
 
     @Override

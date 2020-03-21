@@ -3,16 +3,11 @@ package org.wcci.apimastery;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-<<<<<<< HEAD
 import org.wcci.apimastery.Controllers.AuthorController;
 import org.wcci.apimastery.Models.Author;
 import org.wcci.apimastery.Storages.AuthorStorage;
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
 import org.wcci.apimastery.Storages.Repositories.BookRepository;
-=======
-import org.wcci.apimastery.Models.Author;
-import org.wcci.apimastery.Models.Rating;
->>>>>>> 0320_DV
 
 import java.util.Collection;
 import java.util.Collections;
@@ -56,6 +51,7 @@ public class AuthorControllerTest {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
         mockMvc.perform(get("/authors")).andExpect(status().isOk());
     }
+
 
 
 

@@ -2,11 +2,8 @@ package org.wcci.apimastery.Storages;
 
 import org.springframework.stereotype.Service;
 import org.wcci.apimastery.Models.Author;
-<<<<<<< HEAD:backend-api/src/main/java/org/wcci/apimastery/Storages/AuthorStorageJpaImpl.java
 import org.wcci.apimastery.Storages.AuthorStorage;
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
-=======
->>>>>>> 0320_DV:backend-api/src/main/java/org/wcci/apimastery/AuthorStorageJpaImpl.java
 
 import java.util.Collection;
 
