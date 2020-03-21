@@ -7,10 +7,19 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.wcci.apimastery.Models.Author;
 import org.wcci.apimastery.Models.Book;
+<<<<<<< HEAD
+
+import org.wcci.apimastery.Models.Comments;
+import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
+import org.wcci.apimastery.Storages.Repositories.BookRepository;
+import org.wcci.apimastery.Models.Rating;
+import org.wcci.apimastery.Storages.Repositories.CommentsRepository;
+=======
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
 import org.wcci.apimastery.Storages.Repositories.BookRepository;
 
 import org.wcci.apimastery.Models.Rating;
+>>>>>>> dev
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,13 +31,15 @@ public class JpaMappingTest {
     @Autowired
     private BookRepository bookRepository;
     @Autowired
+    private CommentsRepository commentsRepository;
+    @Autowired
     private TestEntityManager entityManager;
 
     private Author testAuthor;
     private Book testBook1;
     private Book testBook2;
-//    private Comment testComment;
-//    private Comment testComment2;
+    private Comments testComment;
+    private Comments testComment2;
 
 
     @BeforeEach
@@ -41,10 +52,10 @@ public class JpaMappingTest {
         bookRepository.save(testBook1);
         bookRepository.save(testBook2);
 
-//        testComment = new Comment("commenter name","Comment body");
-////        commentRepo.save(testComment);
-////        testComment2 = new Comment("commenter name", "CommentBody");
-////        commentRepo.save(testComment2);
+        testComment = new Comments("commenter name","Comment body");
+        commentsRepository.save(testComment);
+        testComment2 = new Comments("commenter name", "CommentBody");
+        commentsRepository.save(testComment2);
     }
 
 
@@ -78,6 +89,45 @@ public class JpaMappingTest {
         testAuthor.addDownRating();
         Rating ratingToTest = testAuthor.getRating();
         assertThat(ratingToTest.getDownRating()).isEqualTo(1);
+    }
+    @Test
+    public void bookShouldHaveUpRating(){
+        testBook1.addUpRating();
+        Rating ratingToTest = testBook1.getRating();
+        assertThat(ratingToTest.getUpRating()).isEqualTo(1);
+    }
+    @Test
+    public void bookShouldHaveDownRating(){
+        testBook1.addDownRating();
+        Rating ratingToTest = testBook1.getRating();
+        assertThat(ratingToTest.getDownRating()).isEqualTo(1);
+    }
+    @Test
+    public void authorShouldHaveComments(){
+        testAuthor.addCommentToAuthor(testComment);
+        testAuthor.addCommentToAuthor(testComment2);
+        authorRepository.save(testAuthor);
+        commentsRepository.save(testComment);
+        commentsRepository.save(testComment2);
+
+        entityManager.flush();
+        entityManager.clear();
+
+        assertThat(testAuthor.getComments()).contains(testComment, testComment2);
+    }
+    @Test
+    public void bookShouldHaveComments(){
+        testBook1.addCommentToBook(testComment);
+        testBook1.addCommentToBook(testComment2);
+        bookRepository.save(testBook1);
+        commentsRepository.save(testComment);
+        commentsRepository.save(testComment2);
+
+
+        entityManager.flush();
+        entityManager.clear();
+
+        assertThat(testBook1.getComments()).contains(testComment, testComment2);
     }
 
 
