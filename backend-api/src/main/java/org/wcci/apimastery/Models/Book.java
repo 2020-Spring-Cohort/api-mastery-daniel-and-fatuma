@@ -11,7 +11,7 @@ public class Book {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String title;
     @JsonIgnore
     @ManyToOne
@@ -48,7 +48,7 @@ public class Book {
         this.rating = new Rating();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -82,6 +82,10 @@ public class Book {
 
     public void addCommentToBook(Comments commentToAdd){
         comments.add(commentToAdd);
+    }
+
+    public Collection<Comments> getComments() {
+        return  comments;
     }
 
     @Override

@@ -2,13 +2,14 @@ package org.wcci.apimastery.Models;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 public class Author {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @OneToMany(mappedBy = "author")
     private Collection<Book> books;
@@ -36,10 +37,11 @@ public class Author {
         this.name = name;
         this.age = age;
         this.homeTown = homeTown;
+        this.comments = new HashSet<>();
         this.rating = new Rating();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -68,6 +70,10 @@ public class Author {
     }
     public void addCommentToBook(Comments commentToAdd){
         comments.add(commentToAdd);
+    }
+
+    public void addCommentToAuthor(Comments comment) {
+        comments.add(comment);
     }
 
     @Override

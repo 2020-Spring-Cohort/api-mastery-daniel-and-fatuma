@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 public class Rating {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @OneToOne
     private Author author;
@@ -37,7 +37,7 @@ public class Rating {
         downRating++;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

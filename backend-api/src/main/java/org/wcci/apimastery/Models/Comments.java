@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Comments {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     @ManyToOne
     private Author author;
     @ManyToOne
@@ -25,7 +25,7 @@ public class Comments {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
