@@ -1,7 +1,6 @@
 package org.wcci.apimastery.Controllers;
 
 import org.springframework.web.bind.annotation.*;
-import org.wcci.apimastery.Models.Author;
 import org.wcci.apimastery.Models.Book;
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
 import org.wcci.apimastery.Storages.Repositories.BookRepository;

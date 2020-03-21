@@ -41,15 +41,24 @@ public class Comments {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Comments comments = (Comments) o;
-        return id == comments.id &&
-                Objects.equals(user, comments.user) &&
-                Objects.equals(comment, comments.comment);
+
+        if (id != null ? !id.equals(comments.id) : comments.id != null) return false;
+        if (author != null ? !author.equals(comments.author) : comments.author != null) return false;
+        if (book != null ? !book.equals(comments.book) : comments.book != null) return false;
+        if (user != null ? !user.equals(comments.user) : comments.user != null) return false;
+        return comment != null ? comment.equals(comments.comment) : comments.comment == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, comment);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + (book != null ? book.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (comment != null ? comment.hashCode() : 0);
+        return result;
     }
 
     @Override

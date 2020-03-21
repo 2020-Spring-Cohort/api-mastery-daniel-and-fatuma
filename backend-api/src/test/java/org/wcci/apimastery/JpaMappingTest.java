@@ -7,19 +7,14 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.wcci.apimastery.Models.Author;
 import org.wcci.apimastery.Models.Book;
-<<<<<<< HEAD
+
 
 import org.wcci.apimastery.Models.Comments;
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
 import org.wcci.apimastery.Storages.Repositories.BookRepository;
 import org.wcci.apimastery.Models.Rating;
 import org.wcci.apimastery.Storages.Repositories.CommentsRepository;
-=======
-import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
-import org.wcci.apimastery.Storages.Repositories.BookRepository;
 
-import org.wcci.apimastery.Models.Rating;
->>>>>>> dev
 
 import static org.assertj.core.api.Assertions.assertThat;
 
