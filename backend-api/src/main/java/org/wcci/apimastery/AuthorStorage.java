@@ -1,5 +1,7 @@
 package org.wcci.apimastery;
 
+import org.wcci.apimastery.Models.Author;
+
 import java.util.Collection;
 
 public interface AuthorStorage {

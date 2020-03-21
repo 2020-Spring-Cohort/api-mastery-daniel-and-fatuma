@@ -2,8 +2,9 @@ package org.wcci.apimastery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.wcci.apimastery.Models.Author;
+import org.wcci.apimastery.Models.Rating;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -47,7 +48,6 @@ public class AuthorControllerTest {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
         mockMvc.perform(get("/authors")).andExpect(status().isOk());
     }
-
 
 
 

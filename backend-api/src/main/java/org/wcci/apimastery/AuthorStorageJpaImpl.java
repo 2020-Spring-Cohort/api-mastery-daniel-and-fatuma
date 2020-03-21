@@ -1,6 +1,7 @@
 package org.wcci.apimastery;
 
 import org.springframework.stereotype.Service;
+import org.wcci.apimastery.Models.Author;
 
 import java.util.Collection;
 
