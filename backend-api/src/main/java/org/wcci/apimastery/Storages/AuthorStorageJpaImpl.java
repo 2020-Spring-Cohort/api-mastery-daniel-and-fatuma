@@ -4,6 +4,10 @@ import org.springframework.stereotype.Service;
 import org.wcci.apimastery.Models.Author;
 import org.wcci.apimastery.Storages.AuthorStorage;
 import org.wcci.apimastery.Storages.Repositories.AuthorRepository;
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
 import java.util.Collection;
 
 @Service
